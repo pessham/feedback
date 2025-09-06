@@ -90,7 +90,6 @@ function setupFeedbackForm(formId, successId) {
     const ratingStr = (fd.get('rating') || '').toString();
     const body = (fd.get('body') || '').toString().trim();
     const visibility = (fd.get('visibility') || '').toString();
-    const email = (fd.get('email') || '').toString().trim();
     const agree = fd.get('agree') ? true : false;
 
     let ok = true;
@@ -99,16 +98,15 @@ function setupFeedbackForm(formId, successId) {
       setError('rating', '1〜5 から選択してください');
       ok = false;
     }
-    if (body.length < 20 || body.length > 1000) {
-      setError('body', '20〜1000文字で入力してください');
+    if (body.length === 0) {
+      setError('body', '入力してください');
+      ok = false;
+    } else if (body.length > 1000) {
+      setError('body', '1000文字以内で入力してください');
       ok = false;
     }
     if (!visibility) {
       setError('visibility', '公開可否を選択してください');
-      ok = false;
-    }
-    if (email && !/^\S+@\S+\.\S+$/.test(email)) {
-      setError('email', 'メール形式が正しくありません');
       ok = false;
     }
     if (!agree) {
@@ -124,7 +122,6 @@ function setupFeedbackForm(formId, successId) {
       rating,
       body,
       visibility,
-      email: email || null,
       createdAt: new Date().toISOString(),
     };
 

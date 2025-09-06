@@ -27,13 +27,9 @@
           </div>
 
           <div class="field">
-            <label for="cohort">参加回（任意）</label>
+            <label for="cohort">参加回（固定）</label>
             <select id="cohort" name="cohort">
-              <option value="">選択してください</option>
-              <option>2025 Spring</option>
               <option>2025 Summer</option>
-              <option>2025 Autumn</option>
-              <option>2025 Winter</option>
             </select>
           </div>
 
@@ -51,8 +47,8 @@
           </div>
 
           <div class="field">
-            <label for="body">感想本文（必須・20〜1000文字）</label>
-            <textarea id="body" name="body" rows="8" required placeholder="学んだこと、良かった点、改善してほしい点など…"></textarea>
+            <label for="body">感想本文（必須・1000文字以内）</label>
+            <textarea id="body" name="body" rows="8" required maxlength="1000" placeholder="学んだこと、良かった点、改善してほしい点など…"></textarea>
             <div class="error" data-for="body"></div>
           </div>
 
@@ -66,12 +62,7 @@
             <div class="error" data-for="visibility"></div>
           </div>
 
-          <div class="field">
-            <label for="email">連絡先メール（任意）</label>
-            <input id="email" name="email" type="email" placeholder="name@example.com" />
-            <small class="hint">返信が必要な場合のみご記入ください。</small>
-            <div class="error" data-for="email"></div>
-          </div>
+          
 
           <div class="field checkbox">
             <input id="agree" name="agree" type="checkbox" required />
