@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>投稿内容の閲覧 | Vive Coding Camp</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="container">
+      <h1>投稿内容の閲覧</h1>
+      <nav>
+        <a class="button" href="./index.html">トップ</a>
+        <a class="button primary" href="./feedback.html">新しく投稿</a>
+      </nav>
+    </header>
+
+    <main class="container">
+      <section>
+        <div id="view-container" class="feedback-view"></div>
+      </section>
+    </main>
+
+    <footer class="container footer">
+      <small>© Vive Coding Camp</small>
+    </footer>
+
+    <script src="./app.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        renderSubmitted('view-container');
+      });
+    </script>
+  </body>
+  </html>
+

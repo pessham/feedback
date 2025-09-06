@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vive Coding Camp 感想サイト</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="container">
+      <h1>Vive Coding Camp 感想サイト</h1>
+      <p class="lead">参加者のリアルな声を集めています。</p>
+      <nav>
+        <a class="button primary" href="./feedback.html">感想を投稿する</a>
+      </nav>
+    </header>
+
+    <main class="container">
+      <section>
+        <h2>最新の感想</h2>
+        <div id="feedback-list" class="feedback-list" aria-live="polite"></div>
+        <p id="empty-state" class="muted" hidden>まだ感想がありません。最初の感想を投稿しませんか？</p>
+      </section>
+    </main>
+
+    <footer class="container footer">
+      <small>© Vive Coding Camp</small>
+    </footer>
+
+    <script src="./app.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        renderFeedbackList('feedback-list', 10);
+        const list = document.getElementById('feedback-list');
+        const empty = document.getElementById('empty-state');
+        empty.hidden = list.childElementCount > 0;
+      });
+    </script>
+  </body>
+  </html>
+

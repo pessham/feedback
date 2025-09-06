@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>感想を投稿する | Vive Coding Camp</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="container">
+      <h1>感想を投稿する</h1>
+      <nav>
+        <a class="button" href="./index.html">トップへ戻る</a>
+      </nav>
+    </header>
+
+    <main class="container">
+      <form id="feedback-form" novalidate>
+        <fieldset>
+          <legend>Vive Coding Camp の感想</legend>
+          <div class="field">
+            <label for="nickname">ニックネーム（任意）</label>
+            <input id="nickname" name="nickname" type="text" maxlength="40" placeholder="例：たろう" />
+            <small class="hint">40文字まで。未入力の場合は「匿名」と表示します。</small>
+          </div>
+
+          <div class="field">
+            <label for="cohort">参加回（任意）</label>
+            <select id="cohort" name="cohort">
+              <option value="">選択してください</option>
+              <option>2025 Spring</option>
+              <option>2025 Summer</option>
+              <option>2025 Autumn</option>
+              <option>2025 Winter</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="rating">評価（必須）</label>
+            <select id="rating" name="rating" required>
+              <option value="">選択してください</option>
+              <option value="5">★★★★★（とても良い）</option>
+              <option value="4">★★★★☆（良い）</option>
+              <option value="3">★★★☆☆（普通）</option>
+              <option value="2">★★☆☆☆（いまいち）</option>
+              <option value="1">★☆☆☆☆（よくない）</option>
+            </select>
+            <div class="error" data-for="rating"></div>
+          </div>
+
+          <div class="field">
+            <label for="body">感想本文（必須・20〜1000文字）</label>
+            <textarea id="body" name="body" rows="8" required placeholder="学んだこと、良かった点、改善してほしい点など…"></textarea>
+            <div class="error" data-for="body"></div>
+          </div>
+
+          <div class="field">
+            <label for="visibility">公開可否（必須）</label>
+            <select id="visibility" name="visibility" required>
+              <option value="">選択してください</option>
+              <option value="public">公開して良い</option>
+              <option value="private">公開しない（運営向けフィードバック）</option>
+            </select>
+            <div class="error" data-for="visibility"></div>
+          </div>
+
+          <div class="field">
+            <label for="email">連絡先メール（任意）</label>
+            <input id="email" name="email" type="email" placeholder="name@example.com" />
+            <small class="hint">返信が必要な場合のみご記入ください。</small>
+            <div class="error" data-for="email"></div>
+          </div>
+
+          <div class="field checkbox">
+            <input id="agree" name="agree" type="checkbox" required />
+            <label for="agree">利用規約とプライバシーポリシーに同意します</label>
+            <div class="error" data-for="agree"></div>
+          </div>
+
+          <div class="actions">
+            <button type="submit" class="button primary">投稿する</button>
+            <button type="reset" class="button">リセット</button>
+          </div>
+        </fieldset>
+
+        <!-- 成功時は自動で閲覧ページに遷移します -->
+      </form>
+    </main>
+
+    <footer class="container footer">
+      <small>© Vive Coding Camp</small>
+    </footer>
+
+    <script src="./app.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        setupFeedbackForm('feedback-form');
+      });
+    </script>
+  </body>
+  </html>
