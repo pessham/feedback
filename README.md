@@ -1,10 +1,13 @@
 # Vive Coding Camp 感想サイト（MVP）
 
-- トップページ: `public/index.html`
+- トップページ（ホーム）: `public/index.html`
 - 投稿ページ: `public/feedback.html`
+- 一覧ページ: `public/list.html`
 - 閲覧ページ: `public/view.html`（直前に投稿した内容を表示）
 
 ローカルでそのままブラウザで開けます（サーバ不要）。投稿データはブラウザの localStorage に保存され、公開可のものが一覧に表示されます。
+
+公開URL（GitHub Pages）: https://pessham.github.io/feedback/
 
 ## 使い方
 - `public/index.html` をブラウザで開く

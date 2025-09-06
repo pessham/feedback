@@ -3,25 +3,23 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Vive Coding Camp 感想サイト</title>
+    <title>感想一覧 | Vive Coding Camp</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <header class="container">
-      <h1>Vive Coding Camp 感想サイト</h1>
-      <p class="lead">参加者のリアルな声を集めています。</p>
+      <h1>感想一覧</h1>
       <nav>
-        <a class="button primary" href="./index.html">ホーム</a>
+        <a class="button" href="./index.html">ホーム</a>
         <a class="button" href="./feedback.html">投稿</a>
-        <a class="button" href="./list.html">一覧</a>
+        <a class="button primary" href="./list.html">一覧</a>
       </nav>
     </header>
 
     <main class="container">
       <section>
-        <h2>最新の感想</h2>
-        <div id="feedback-list" class="feedback-list" aria-live="polite"></div>
-        <p id="empty-state" class="muted" hidden>まだ感想がありません。最初の感想を投稿しませんか？</p>
+        <div id="list-container" class="feedback-list" aria-live="polite"></div>
+        <p id="empty-list" class="muted" hidden>まだ公開された感想がありません。</p>
       </section>
     </main>
 
@@ -32,11 +30,12 @@
     <script src="./app.js"></script>
     <script>
       document.addEventListener('DOMContentLoaded', () => {
-        renderFeedbackList('feedback-list', 10);
-        const list = document.getElementById('feedback-list');
-        const empty = document.getElementById('empty-state');
+        renderFeedbackList('list-container', 10000);
+        const list = document.getElementById('list-container');
+        const empty = document.getElementById('empty-list');
         empty.hidden = list.childElementCount > 0;
       });
     </script>
   </body>
   </html>
+
